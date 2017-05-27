@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<br>
+<br>
+<div class="container">
+    @using (Html.BeginForm("Index", "Country", FormMethod.Get))
+    {
+        @Html.Hidden("searchBy", "Poland") 
+        <input  type="submit" value="VIEW POLAND" class="btn btn-danger">
+    } 
+    <br />
+    <br />  
+    <table class="table table-striped table-bordered" id="example">
+        <thead>
+            <tr>
+                <th>Country Name</th>
+                <th>Top Level Domain</th>
+                <th>alpha2Code</th>
+                <th>alpha3Code</th>
+                <th>Calling Codes</th>
+                <th>Capital</th>
+                <th>alt Spellings</th>
+                <th>region</th>
+                <th>subregion</th>
+                <th>Population</th>
+                <th>latlng</th>
+                <th>demonym</th>
+                <th>Asrea</th>
+                <th>Gini</th>
+                <th>Timezones</th>
+                <th>Borders</th>
+                <th>Native Names</th>
+                <th>Numeric Code</th>
+                <th>Currencies</th>
+                <th>Languages</th>
+                <th>Translations</th>
+                <th>Flag</th>
+                <th>Regional Blocs</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var country in ViewBag.countries)
+            {
+                <tr>
+                    <td>@country.CountryName</td>
+                    <td>@country.topLevelDomain</td>
+                    <td>@country.alpha2Code</td>
+                    <td>@country.alpha3Code</td>
+                    <td>@country.callingCodes</td>
+                    <td>@country.capital</td>
+                    <td>@country.altSpellings</td>
+                    <td>@country.region</td>
+                    <td>@country.subregion</td>
+                    <td>@country.population</td>
+                    <td>@country.latlng</td>
+                    <td>@country.demonym</td>
+                    <td>@country.area</td>
+                    <td>@country.gini</td>
+                    <td>@country.timezones</td>
+                    <td>@country.borders</td>
+                    <td>@country.nativeName</td>
+                    <td>@country.numericCode</td>
+                    <td>@country.currencies</td>
+                    <td>@country.languages</td>
+                    <td>@country.translations</td>
+                    <td>@country.flag</td>
+                    <td>@country.regionalBlocs</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div> 
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+<script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#example').dataTable();
+    });
+</script>
